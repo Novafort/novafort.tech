@@ -1,216 +1,444 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Novafort — AI Software for Business Operations</title>
-  <meta name="description" content="Novafort builds AI-powered software, workflow automation and operational systems for financial institutions and businesses." />
-  <style>
-    :root{
-      --forest:#0b2725;
-      --forest-2:#133a36;
-      --ink:#10211f;
-      --paper:#f6f3eb;
-      --paper-2:#ebe6da;
-      --white:#fffdf8;
-      --gold:#c9af72;
-      --sage:#8fb8aa;
-      --muted:#65716d;
-      --line:#d8d3c7;
-      --line-dark:rgba(255,255,255,.14);
-      --max:1220px;
-    }
-    *{box-sizing:border-box}
-    html{scroll-behavior:smooth}
-    body{margin:0;background:var(--paper);color:var(--ink);font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;line-height:1.5}
-    a{text-decoration:none;color:inherit}
-    .wrap{width:min(calc(100% - 40px),var(--max));margin:0 auto}
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Novafort Tech — AI Software for Business Operations</title>
+<meta name="description" content="Novafort Tech builds ready-made software products, AI agents, workflow automation and business intelligence for financial institutions and operations-heavy businesses.">
+<style>
+:root{
+  --forest:#0b2725;
+  --forest-2:#133a36;
+  --ink:#10211f;
+  --paper:#f6f3eb;
+  --white:#ffffff;
+  --gold:#c9af72;
+  --gold-d:#a88c4a;
+  --sage:#8fb8aa;
+  --mint:#dfe9e4;
+  --muted:#5d6b67;
+  --line:#dcd7ca;
+  --line-d:rgba(255,255,255,.14);
+  --serif:Georgia,"Times New Roman",serif;
+  --sans:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+  --max:1220px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--white);color:var(--ink);font-family:var(--sans);line-height:1.55}
+a{color:inherit;text-decoration:none}
+p{margin:0}
+.wrap{width:min(100% - 40px,var(--max));margin-inline:auto}
+:focus-visible{outline:2px solid var(--gold-d);outline-offset:3px}
 
-    nav{position:sticky;top:0;z-index:50;background:rgba(246,243,235,.92);backdrop-filter:blur(14px);border-bottom:1px solid rgba(16,33,31,.08)}
-    .nav-inner{height:78px;display:flex;align-items:center;justify-content:space-between;gap:24px}
-    .brand{display:flex;align-items:center;gap:13px;font-weight:800;letter-spacing:.045em}
-    .brand-mark{width:34px;height:34px;border:1px solid var(--forest);border-radius:50%;display:grid;place-items:center;font-family:Georgia,serif;font-size:16px}
-    .nav-links{display:flex;gap:30px;font-size:14px;color:#314441}
-    .nav-links a:hover{color:#000}
-    .nav-actions{display:flex;gap:10px;align-items:center}
-    .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:12px 18px;border-radius:999px;border:1px solid #bdb7aa;font-size:14px;font-weight:750;transition:.2s ease}
-    .btn:hover{transform:translateY(-1px)}
-    .btn-dark{background:var(--forest);color:white;border-color:var(--forest)}
+/* ---------- header with mega menu ---------- */
+header{position:sticky;top:0;z-index:60;background:rgba(255,255,255,.96);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+.bar{height:76px;display:flex;align-items:center;justify-content:space-between;gap:24px}
+.brand{display:flex;align-items:center;gap:12px;font-weight:800;letter-spacing:.05em}
+.brand-mark{width:34px;height:34px;border:1px solid var(--forest);border-radius:50%;display:grid;place-items:center;font-family:var(--serif);font-size:16px}
+.menu{display:flex;gap:6px;height:100%;align-items:stretch}
+.menu>li{list-style:none;display:flex;align-items:center;position:relative}
+.menu{margin:0;padding:0}
+.menu>li>a{padding:0 14px;height:100%;display:flex;align-items:center;gap:6px;font-size:14px;font-weight:600;color:#2c3f3c}
+.menu>li:hover>a,.menu>li:focus-within>a{color:var(--gold-d)}
+.caret{font-size:9px;opacity:.7}
+.mega{position:absolute;top:76px;left:50%;transform:translateX(-30%);width:min(760px,92vw);background:var(--white);border:1px solid var(--line);border-top:3px solid var(--gold);border-radius:0 0 14px 14px;box-shadow:0 24px 48px rgba(11,39,37,.14);padding:26px;display:none;grid-template-columns:1fr 1fr;gap:6px 22px}
+.menu>li:hover .mega,.menu>li:focus-within .mega{display:grid}
+.mega a{display:block;padding:12px 14px;border-radius:10px}
+.mega a:hover{background:var(--paper)}
+.mega b{display:block;font-size:15px;color:var(--forest)}
+.mega span{display:block;font-size:13px;color:var(--muted);margin-top:2px}
+.nav-cta{display:flex;gap:10px;align-items:center}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:13px 22px;border-radius:999px;border:1px solid #bdb7aa;font-size:14px;font-weight:700;transition:.2s;cursor:pointer;background:transparent;color:inherit}
+.btn:hover{transform:translateY(-1px)}
+.btn-dark{background:var(--forest);color:#fff;border-color:var(--forest)}
+.btn-dark:hover{background:var(--forest-2)}
+.btn-gold{background:var(--gold);border-color:var(--gold);color:#16201e}
+.btn-gold:hover{background:#d8c086}
+.btn-ghost-w{border-color:rgba(255,255,255,.35);color:#fff}
+.mobile{display:none}
+.mobile summary{list-style:none;cursor:pointer;padding:10px 16px;border:1px solid var(--line);border-radius:999px;font-weight:700;font-size:14px}
+.mobile summary::-webkit-details-marker{display:none}
+.mobile nav{position:absolute;left:0;right:0;top:76px;background:#fff;border-bottom:1px solid var(--line);padding:12px 20px 20px;display:grid;gap:2px}
+.mobile nav a{padding:12px 4px;border-bottom:1px solid var(--line);font-weight:600}
 
-    .hero{padding:92px 0 60px}
-    .hero-grid{display:grid;grid-template-columns:1.35fr .65fr;gap:70px;align-items:end}
-    .kicker{font-size:12px;text-transform:uppercase;letter-spacing:.18em;font-weight:800;color:#55746d;margin-bottom:22px}
-    h1{font-family:Georgia,"Times New Roman",serif;font-size:clamp(58px,8vw,110px);font-weight:500;line-height:.9;letter-spacing:-.055em;margin:0;max-width:980px}
-    h1 em{font-style:normal;color:#6e8f86}
-    .hero-side{padding-bottom:8px}
-    .hero-side p{font-size:19px;color:#4f605c;margin:0 0 26px}
-    .hero-actions{display:flex;gap:10px;flex-wrap:wrap}
+/* ---------- typography ---------- */
+.tag{font-size:12px;text-transform:uppercase;letter-spacing:.17em;font-weight:800;color:#5d8077;margin-bottom:16px}
+h1,h2,h3{font-family:var(--serif);font-weight:500;letter-spacing:-.03em;margin:0}
+h1{font-size:clamp(46px,6.6vw,92px);line-height:.96;max-width:1000px}
+h1 em{font-style:normal;color:#6e8f86}
+h2{font-size:clamp(34px,4.4vw,58px);line-height:1;text-wrap:balance}
+h3{font-size:26px;line-height:1.1}
+section{padding:104px 0}
+.center{text-align:center}
+.center h2,.center .sub{margin-inline:auto}
+.sub{font-size:18px;color:var(--muted);max-width:640px;margin-top:18px}
 
-    .hero-strip{margin-top:72px;border-top:1px solid #cbc5b9;border-bottom:1px solid #cbc5b9;display:grid;grid-template-columns:1.2fr .8fr .8fr .8fr}
-    .strip-item{padding:22px 20px;border-right:1px solid #d9d3c8;min-height:102px}
-    .strip-item:last-child{border-right:none}
-    .strip-item small{display:block;text-transform:uppercase;letter-spacing:.12em;font-size:10px;color:#7d8784;margin-bottom:8px}
-    .strip-item strong{font-size:16px;font-weight:700}
-    .strip-intro{font-size:14px;color:#596662}
+/* ---------- hero (centered, Prodware-style) ---------- */
+.hero{background:linear-gradient(180deg,var(--paper) 0%,#fff 100%);padding:96px 0 64px;text-align:center}
+.hero h1{margin-inline:auto}
+.hero .sub{margin:26px auto 0;font-size:20px;max-width:700px}
+.hero-actions{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:34px}
+.pillars{margin-top:72px;display:grid;grid-template-columns:repeat(4,1fr);gap:16px;text-align:left}
+.pillar{background:#fff;border:1px solid var(--line);border-radius:18px;padding:24px;transition:.2s;display:block}
+.pillar:hover{border-color:var(--gold);transform:translateY(-3px);box-shadow:0 18px 36px rgba(11,39,37,.08)}
+.pillar small{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:#7c8e89;font-weight:700}
+.pillar strong{display:block;font-family:var(--serif);font-weight:500;font-size:22px;margin:10px 0 8px;line-height:1.1}
+.pillar p{font-size:14px;color:var(--muted)}
+.scroll{margin-top:46px;color:#7c8e89;font-size:12px;letter-spacing:.2em;text-transform:uppercase}
+.scroll i{display:block;width:1px;height:38px;background:var(--gold);margin:12px auto 0}
 
-    section{padding:110px 0}
-    .section-tag{font-size:11px;text-transform:uppercase;letter-spacing:.17em;font-weight:800;color:#64847c;margin-bottom:18px}
-    .section-grid{display:grid;grid-template-columns:.7fr 1.3fr;gap:70px}
-    .section-title{font-family:Georgia,"Times New Roman",serif;font-size:clamp(42px,5vw,68px);font-weight:500;line-height:.98;letter-spacing:-.04em;margin:0}
-    .section-copy{font-size:17px;color:#62706c;max-width:460px;margin-top:20px}
+/* ---------- product overview cards ---------- */
+.band-light{background:var(--white)}
+.grid-4{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:54px}
+.pcard{border:1px solid var(--line);border-radius:18px;padding:28px 24px;background:var(--paper);display:flex;flex-direction:column;gap:12px;transition:.2s;min-width:0}
+.pcard:hover{background:var(--forest);color:#f7f2e8;border-color:var(--forest)}
+.pcard:hover p,.pcard:hover .go{color:#cfdcd7}
+.pcard .no{font-size:11px;letter-spacing:.14em;color:var(--gold-d);font-weight:800}
+.pcard h3{font-size:25px}
+.pcard p{font-size:14.5px;color:var(--muted)}
+.pcard .go{margin-top:auto;padding-top:10px;font-weight:700;font-size:14px;color:var(--gold-d)}
 
-    .products{background:var(--forest);color:#f7f2e8}
-    .products .section-tag{color:#9ec4b8}
-    .products .section-copy{color:#b9c8c4}
-    .product-list{border-top:1px solid var(--line-dark)}
-    .product-row{display:grid;grid-template-columns:70px 1fr 1fr 36px;gap:22px;align-items:center;padding:28px 0;border-bottom:1px solid var(--line-dark);transition:.2s ease}
-    .product-row:hover{padding-left:8px}
-    .product-no{font-size:11px;color:var(--gold);letter-spacing:.12em}
-    .product-name{font-size:25px;font-weight:700;letter-spacing:-.025em}
-    .product-desc{font-size:14px;color:#b9c8c4;max-width:420px}
-    .product-arrow{font-size:22px;color:var(--gold)}
+/* ---------- product detail ---------- */
+.details{background:var(--forest);color:#f7f2e8}
+.details .tag{color:#9ec4b8}
+.details .sub{color:#b9c8c4}
+.prod{display:grid;grid-template-columns:.9fr 1.1fr;gap:56px;padding:56px 0;border-top:1px solid var(--line-d);align-items:start}
+.prod:first-of-type{margin-top:56px}
+.prod-head .badge{display:inline-block;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);font-weight:800;margin-bottom:14px}
+.prod-head h3{font-size:clamp(34px,4vw,48px);line-height:1}
+.prod-head .for{margin-top:22px;font-size:14px;color:#b9c8c4;border-left:2px solid var(--gold);padding-left:14px}
+.prod-head .for b{display:block;color:#f7f2e8;margin-bottom:4px;font-size:12px;letter-spacing:.12em;text-transform:uppercase}
+.prod-body{min-width:0}
+.prod-body>p{font-size:18px;color:#d3dfdb;max-width:640px}
+.feat{display:grid;grid-template-columns:1fr 1fr;gap:22px 30px;margin-top:30px}
+.feat div{padding-top:14px;border-top:1px solid var(--line-d)}
+.feat strong{display:block;font-size:16px;margin-bottom:4px}
+.soon{font-style:normal;font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--gold);border:1px solid rgba(201,175,114,.5);border-radius:999px;padding:2px 8px;margin-left:6px;vertical-align:middle;font-weight:800}
+.feat span{font-size:14px;color:#b9c8c4}
+.prod-cta{margin-top:30px}
 
-    .services{background:var(--white)}
-    .service-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:0;border-top:1px solid var(--line);border-left:1px solid var(--line)}
-    .service{padding:34px 30px 38px;border-right:1px solid var(--line);border-bottom:1px solid var(--line);min-height:225px;display:flex;flex-direction:column;justify-content:space-between;transition:.2s ease}
-    .service:hover{background:#f3efe5}
-    .service-num{font-size:11px;color:#7c8e89;letter-spacing:.12em}
-    .service h3{font-family:Georgia,"Times New Roman",serif;font-size:31px;font-weight:500;line-height:1;margin:28px 0 10px}
-    .service p{color:#6a7572;margin:0;max-width:440px}
+/* ---------- AI + BI ---------- */
+.ai{background:var(--mint)}
+.cols-3{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:54px}
+.acard{background:#fff;border-radius:18px;padding:30px;min-width:0}
+.acard h3{font-size:25px;margin-bottom:10px}
+.acard p{color:var(--muted);font-size:15px}
+.acard .chain{margin-top:18px;padding-top:14px;border-top:1px solid var(--line);font-size:12px;letter-spacing:.06em;color:#547169;font-weight:700}
 
-    .system{background:#dfe9e4}
-    .system-grid{display:grid;grid-template-columns:1fr 1fr;gap:70px;align-items:start}
-    .system-copy h2{font-family:Georgia,"Times New Roman",serif;font-size:clamp(46px,6vw,74px);font-weight:500;line-height:.95;letter-spacing:-.04em;margin:0 0 22px}
-    .system-copy p{font-size:18px;color:#4d5f5a;max-width:580px}
-    .flow{border-top:1px solid rgba(16,33,31,.2)}
-    .flow-row{display:grid;grid-template-columns:42px 1fr;gap:18px;padding:23px 0;border-bottom:1px solid rgba(16,33,31,.2)}
-    .flow-row span{font-size:11px;color:#547169;letter-spacing:.12em;padding-top:4px}
-    .flow-row strong{display:block;font-size:18px;margin-bottom:5px}.flow-row p{margin:0;color:#586964;font-size:14px}
+/* ---------- services ---------- */
+.service-grid{display:grid;grid-template-columns:repeat(3,1fr);margin-top:54px;border-top:1px solid var(--line);border-left:1px solid var(--line)}
+.service{padding:32px 28px 36px;border-right:1px solid var(--line);border-bottom:1px solid var(--line);transition:.2s;min-width:0}
+.service:hover{background:var(--paper)}
+.service small{font-size:11px;color:#7c8e89;letter-spacing:.12em}
+.service h3{font-size:27px;margin:22px 0 10px}
+.service p{color:var(--muted);font-size:15px}
 
-    .industries{background:var(--paper)}
-    .industry-list{display:flex;flex-wrap:wrap;gap:10px;margin-top:34px}
-    .pill{padding:12px 16px;border:1px solid #bdb8ad;border-radius:999px;font-size:14px;background:rgba(255,255,255,.35)}
+/* ---------- approach ---------- */
+.approach{background:var(--paper)}
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-top:54px}
+.step{border-top:2px solid var(--forest);padding-top:20px}
+.step small{font-size:11px;letter-spacing:.14em;color:#64847c;font-weight:800}
+.step h3{font-size:22px;margin:10px 0 8px}
+.step p{font-size:14.5px;color:var(--muted)}
 
-    .cta{padding:0 0 110px}
-    .cta-box{background:var(--forest);color:#f7f2e8;border-radius:26px;padding:58px;display:grid;grid-template-columns:1fr auto;gap:30px;align-items:end}
-    .cta-box h2{font-family:Georgia,"Times New Roman",serif;font-size:clamp(42px,5vw,64px);font-weight:500;line-height:.98;letter-spacing:-.035em;margin:0 0 16px;max-width:780px}
-    .cta-box p{margin:0;color:#b9c8c4;max-width:720px;font-size:17px}
-    .cta-box .btn{background:var(--gold);border-color:var(--gold);color:#16201e}
+/* ---------- industries ---------- */
+.industry-list{display:flex;flex-wrap:wrap;gap:10px;margin-top:40px;justify-content:center}
+.pill{padding:14px 22px;border:1px solid #bdb8ad;border-radius:999px;font-size:15px;background:var(--paper)}
 
-    footer{border-top:1px solid #d1ccc1;padding:32px 0 44px;color:#67736f;font-size:13px}
-    .footer-row{display:flex;justify-content:space-between;gap:30px;align-items:center}
-    .footer-links{display:flex;gap:20px}
+/* ---------- contact ---------- */
+.cta{padding:0 0 104px}
+.cta-box{background:var(--forest);color:#f7f2e8;border-radius:28px;padding:clamp(32px,6vw,72px);display:grid;grid-template-columns:1fr auto;gap:30px;align-items:end}
+.cta-box h2{max-width:760px}
+.cta-box p{margin-top:16px;color:#b9c8c4;max-width:680px;font-size:17px}
+.cta-box .mail{margin-top:12px;font-size:14px;color:var(--gold);user-select:all}
 
-    @media(max-width:920px){
-      .nav-links{display:none}.hero-grid,.section-grid,.system-grid,.cta-box{grid-template-columns:1fr}.hero-grid{gap:36px}.hero-strip{grid-template-columns:1fr 1fr}.strip-item:nth-child(2){border-right:none}.product-row{grid-template-columns:48px 1fr 36px}.product-desc{grid-column:2/3}.service-grid{grid-template-columns:1fr}.cta-box{align-items:start}.cta-box .btn{justify-self:start}
-    }
-    @media(max-width:600px){
-      .wrap{width:min(calc(100% - 24px),var(--max))}.nav-inner{height:68px}.nav-actions .btn:first-child{display:none}.hero{padding-top:56px}.hero-strip{grid-template-columns:1fr}.strip-item{border-right:none;border-bottom:1px solid #d9d3c8}.strip-item:last-child{border-bottom:none}section{padding:78px 0}.product-row{grid-template-columns:36px 1fr 24px}.product-name{font-size:21px}.service{padding:28px 22px}.cta-box{padding:36px 26px}.footer-row{display:block}.footer-links{margin-top:12px;flex-wrap:wrap}
-    }
-  </style>
+/* ---------- footer (columns) ---------- */
+footer{background:#071a18;color:#a9bbb6;padding:64px 0 32px;font-size:14px}
+.foot{display:grid;grid-template-columns:1.4fr repeat(3,1fr);gap:40px}
+.foot h4{margin:0 0 14px;color:#f1ebdc;font-size:13px;letter-spacing:.12em;text-transform:uppercase}
+.foot a{display:block;padding:4px 0}
+.foot a:hover{color:var(--gold)}
+.foot .brand{color:#f1ebdc;margin-bottom:14px}
+.foot .brand-mark{border-color:var(--gold);color:var(--gold)}
+.legal{margin-top:46px;padding-top:22px;border-top:1px solid var(--line-d);display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;font-size:13px}
+
+@media(max-width:1000px){
+  .menu,.nav-cta .btn{display:none}
+  .mobile{display:block}
+  .pillars,.grid-4{grid-template-columns:1fr 1fr}
+  .prod{grid-template-columns:1fr;gap:28px}
+  .cols-3,.service-grid{grid-template-columns:1fr 1fr}
+  .steps{grid-template-columns:1fr 1fr}
+  .cta-box{grid-template-columns:1fr;align-items:start}
+  .foot{grid-template-columns:1fr 1fr}
+  section{padding:80px 0}
+}
+@media(max-width:620px){
+  .wrap{width:min(100% - 28px,var(--max))}
+  .pillars,.grid-4,.cols-3,.service-grid,.steps,.feat{grid-template-columns:1fr}
+  .hero{padding-top:64px}
+  .foot{grid-template-columns:1fr}
+  .bar{height:68px}
+  .mobile nav{top:68px}
+}
+@media(prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
+</style>
 </head>
 <body>
-  <nav>
-    <div class="wrap nav-inner">
-      <a class="brand" href="#top"><span class="brand-mark">N</span><span>NOVAFORT</span></a>
-      <div class="nav-links">
-        <a href="#products">Products</a><a href="#services">Services</a><a href="#approach">Approach</a><a href="#industries">Industries</a>
-      </div>
-      <div class="nav-actions"><a class="btn" href="#services">Our Services</a><a class="btn btn-dark" href="#contact">Talk to us</a></div>
+
+<header>
+  <div class="wrap bar">
+    <a class="brand" href="#top"><span class="brand-mark">N</span><span>NOVAFORT TECH</span></a>
+
+    <ul class="menu">
+      <li><a href="#products">Products <span class="caret">▾</span></a>
+        <div class="mega">
+          <a href="#treasury-os"><b>Treasury OS</b><span>Deals, authorizations, limits and payment automation</span></a>
+          <a href="#factoring-erp"><b>Factoring ERP</b><span>Origination to collections for factoring companies</span></a>
+          <a href="#receivables"><b>AI Receivables Manager</b><span>Prioritized collections with AI-assisted follow-up</span></a>
+          <a href="#b2b-sales"><b>AI B2B Sales</b><span>Prospecting and outreach with human approval</span></a>
+        </div>
+      </li>
+      <li><a href="#ai">AI &amp; Automation <span class="caret">▾</span></a>
+        <div class="mega">
+          <a href="#ai"><b>AI agents</b><span>Research, classification, drafting and decision support</span></a>
+          <a href="#ai"><b>Workflow automation</b><span>Structured digital workflows instead of handoffs</span></a>
+          <a href="#ai"><b>Business intelligence</b><span>Dashboards and reporting on your own data</span></a>
+          <a href="#services"><b>All services</b><span>Custom apps, integrations and AI products</span></a>
+        </div>
+      </li>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#approach">Approach</a></li>
+      <li><a href="#industries">Industries</a></li>
+    </ul>
+
+    <div class="nav-cta">
+      <a class="btn btn-dark" href="#contact">Contact us</a>
+      <details class="mobile">
+        <summary>Menu</summary>
+        <nav>
+          <a href="#products">Products</a><a href="#ai">AI &amp; Automation</a><a href="#services">Services</a><a href="#approach">Approach</a><a href="#industries">Industries</a><a href="#contact">Contact us</a>
+        </nav>
+      </details>
     </div>
-  </nav>
+  </div>
+</header>
 
-  <main id="top">
-    <section class="hero">
-      <div class="wrap">
-        <div class="hero-grid">
-          <div>
-            <div class="kicker">Software · Automation · AI</div>
-            <h1>Operational software for the <em>work that matters.</em></h1>
+<main id="top">
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="wrap">
+      <div class="tag">Software · AI agents · Automation · Business intelligence</div>
+      <h1>Operational software for the <em>work that matters.</em></h1>
+      <p class="sub">Novafort Tech builds ready-made products and AI-enabled systems for financial institutions and businesses with complex, manual operations. Automation does the repetitive work. People keep control of the decisions.</p>
+      <div class="hero-actions">
+        <a class="btn btn-dark" href="#products">Explore products</a>
+        <a class="btn" href="#contact">Contact us</a>
+      </div>
+
+      <div class="pillars">
+        <a class="pillar" href="#products"><small>Ready products</small><strong>Four products</strong><p>Finance, collections and sales software that works from day one.</p></a>
+        <a class="pillar" href="#ai"><small>AI agents</small><strong>Work done for you</strong><p>Agents that read, research, draft and follow up, with approval built in.</p></a>
+        <a class="pillar" href="#ai"><small>Automation</small><strong>Fewer handoffs</strong><p>Workflows that replace email chains and manual data entry.</p></a>
+        <a class="pillar" href="#ai"><small>Business intelligence</small><strong>One clear view</strong><p>Dashboards and reports built on the data you already produce.</p></a>
+      </div>
+      <div class="scroll">Scroll<i></i></div>
+    </div>
+  </section>
+
+  <!-- PRODUCT OVERVIEW -->
+  <section class="band-light" id="products">
+    <div class="wrap center">
+      <div class="tag">Products</div>
+      <h2>Focused software for complex operations.</h2>
+      <p class="sub">Each product covers one operating process from start to finish, so you begin with a working system and not a blank project.</p>
+    </div>
+    <div class="wrap">
+      <div class="grid-4">
+        <a class="pcard" href="#treasury-os"><div class="no">01</div><h3>Treasury OS</h3><p>Deal capture, smart deal generation, authorizations, limit control and payment automation for banks, MFIs and financial institutions.</p><div class="go">Read more →</div></a>
+        <a class="pcard" href="#factoring-erp"><div class="no">02</div><h3>Factoring ERP</h3><p>Origination, underwriting, invoice servicing, funding, collections and reporting for factoring companies.</p><div class="go">Read more →</div></a>
+        <a class="pcard" href="#receivables"><div class="no">03</div><h3>AI Receivables Manager</h3><p>Collections prioritization, customer context, promises, exceptions and AI-assisted follow-up.</p><div class="go">Read more →</div></a>
+        <a class="pcard" href="#b2b-sales"><div class="no">04</div><h3>AI B2B Sales</h3><p>Prospecting on our own database of 1 million US businesses, with research, prioritization and human-approved outreach.</p><div class="go">Read more →</div></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRODUCT DETAIL -->
+  <section class="details">
+    <div class="wrap">
+      <div class="tag">Product details</div>
+      <h2>What each product does.</h2>
+      <p class="sub">A closer look at the four products, who they are built for and what your team gets.</p>
+
+      <article class="prod" id="treasury-os">
+        <div class="prod-head">
+          <span class="badge">Product 01 · Treasury</span>
+          <h3>Treasury OS</h3>
+          <div class="for"><b>Built for</b>Banks, microfinance institutions and financial institutions with an active treasury desk.</div>
+        </div>
+        <div class="prod-body">
+          <p>Treasury OS brings deal requests, authorizations, limits and payments into one controlled workspace. Instead of tracking deals across email threads and spreadsheets, your team captures each deal once, generates the deal records and documents automatically, checks it against limits, routes it for authorization and automates the payment, with a complete record at every step.</p>
+          <div class="feat">
+            <div><strong>Deal capture</strong><span>Record deals in a single register with consistent fields and statuses.</span></div>
+            <div><strong>Smart deal generation</strong><span>Generate deal records and documents automatically from incoming requests, ready for review.</span></div>
+            <div><strong>Authorizations</strong><span>Route each deal to the right authorizer with a clear decision history.</span></div>
+            <div><strong>Limit control</strong><span>Check every deal against your limits before it moves forward.</span></div>
+            <div><strong>Payment automation</strong><span>Automate payment processing for approved deals while keeping approvals in place.</span></div>
+            <div><strong>Financial risk <em class="soon">Coming soon</em></strong><span>Financial risk management is on the roadmap and will be added to the platform.</span></div>
           </div>
-          <div class="hero-side">
-            <p>Novafort builds focused software products and AI-enabled systems for financial institutions and businesses with complex, manual operations.</p>
-            <div class="hero-actions"><a class="btn btn-dark" href="#products">Explore products</a><a class="btn" href="#services">Explore services</a></div>
+          <div class="prod-cta"><a class="btn btn-gold" href="#contact">Request a demo</a></div>
+        </div>
+      </article>
+
+      <article class="prod" id="factoring-erp">
+        <div class="prod-head">
+          <span class="badge">Product 02 · Factoring</span>
+          <h3>Factoring ERP</h3>
+          <div class="for"><b>Built for</b>Factoring companies that want origination, servicing and collections in one system.</div>
+        </div>
+        <div class="prod-body">
+          <p>Factoring ERP runs the full factoring lifecycle: onboarding clients, underwriting, servicing invoices, funding, collecting from debtors and reporting on the portfolio. Every step lives in one system of record, so your team stops reconciling spreadsheets.</p>
+          <div class="feat">
+            <div><strong>Origination &amp; underwriting</strong><span>Structured intake and review of clients, debtors and invoices.</span></div>
+            <div><strong>Invoice servicing</strong><span>Track each invoice, its status and its documents from purchase to settlement.</span></div>
+            <div><strong>Funding</strong><span>Prepare and control advances against approved invoices.</span></div>
+            <div><strong>Collections &amp; reporting</strong><span>Follow debtor payments and see portfolio performance at a glance.</span></div>
           </div>
+          <div class="prod-cta"><a class="btn btn-gold" href="#contact">Request a demo</a></div>
         </div>
-        <div class="hero-strip">
-          <div class="strip-item strip-intro"><small>What we build</small>Purpose-built systems that replace fragmented workflows, spreadsheets and repetitive manual work.</div>
-          <div class="strip-item"><small>01</small><strong>Financial operations</strong></div>
-          <div class="strip-item"><small>02</small><strong>AI-enabled workflows</strong></div>
-          <div class="strip-item"><small>03</small><strong>Custom applications</strong></div>
-        </div>
-      </div>
-    </section>
+      </article>
 
-    <section class="products" id="products">
-      <div class="wrap section-grid">
-        <div>
-          <div class="section-tag">Products</div>
-          <h2 class="section-title">Focused software for complex operations.</h2>
-          <p class="section-copy">We build products around specific business workflows where speed, control and operational clarity matter.</p>
+      <article class="prod" id="receivables">
+        <div class="prod-head">
+          <span class="badge">Product 03 · Collections</span>
+          <h3>AI Receivables Manager</h3>
+          <div class="for"><b>Built for</b>Finance and collections teams that manage many overdue invoices and customer conversations.</div>
         </div>
-        <div class="product-list">
-          <a class="product-row" href="#contact"><div class="product-no">01</div><div class="product-name">Treasury OS</div><div class="product-desc">Deal capture, smart parsing, approvals and treasury operations for banks, MFIs and financial institutions.</div><div class="product-arrow">↗</div></a>
-          <a class="product-row" href="#contact"><div class="product-no">02</div><div class="product-name">AI B2B Sales</div><div class="product-desc">Prospect discovery, research, prioritization, outreach workflows and human-approved execution.</div><div class="product-arrow">↗</div></a>
-          <a class="product-row" href="#contact"><div class="product-no">03</div><div class="product-name">AI Receivables Manager</div><div class="product-desc">Collections prioritization, customer context, promises, exceptions and AI-assisted follow-up.</div><div class="product-arrow">↗</div></a>
-          <a class="product-row" href="#contact"><div class="product-no">04</div><div class="product-name">Factoring ERP</div><div class="product-desc">Origination, underwriting, invoice servicing, funding, collections and reporting for factoring companies.</div><div class="product-arrow">↗</div></a>
+        <div class="prod-body">
+          <p>AI Receivables Manager helps collectors decide who to contact first and what to say. It keeps customer context in one place, records promises and exceptions, and prepares follow-ups with AI. Your team reviews and approves each message before it goes out.</p>
+          <div class="feat">
+            <div><strong>Collections prioritization</strong><span>A ranked list of accounts to work, based on what matters to your business.</span></div>
+            <div><strong>Customer context</strong><span>History, notes and open items for each customer, all in one view.</span></div>
+            <div><strong>Promises &amp; exceptions</strong><span>Track payment promises, disputes and special cases so nothing is lost.</span></div>
+            <div><strong>AI-assisted follow-up</strong><span>Drafted reminders and replies that a person approves before sending.</span></div>
+          </div>
+          <div class="prod-cta"><a class="btn btn-gold" href="#contact">Request a demo</a></div>
         </div>
-      </div>
-    </section>
+      </article>
 
-    <section class="services" id="services">
-      <div class="wrap">
-        <div class="section-grid" style="margin-bottom:52px">
-          <div><div class="section-tag">Services</div><h2 class="section-title">Build what your business actually needs.</h2></div>
-          <div><p class="section-copy">For companies that need more than an off-the-shelf product, we design and build practical software, automations and AI-enabled workflows.</p></div>
+      <article class="prod" id="b2b-sales">
+        <div class="prod-head">
+          <span class="badge">Product 04 · Sales</span>
+          <h3>AI B2B Sales</h3>
+          <div class="for"><b>Built for</b>B2B companies and sales teams that want more qualified conversations with less manual research.</div>
         </div>
-        <div class="service-grid">
-          <div class="service"><div class="service-num">01</div><div><h3>Web Development</h3><p>Modern business websites designed around credibility, clarity and conversion.</p></div></div>
-          <div class="service"><div class="service-num">02</div><div><h3>App Development</h3><p>Custom web applications, portals and internal tools built around real operating processes.</p></div></div>
-          <div class="service"><div class="service-num">03</div><div><h3>Workflow Automation</h3><p>Replace repetitive manual tasks and fragmented handoffs with structured digital workflows.</p></div></div>
-          <div class="service"><div class="service-num">04</div><div><h3>AI Agents</h3><p>Task-focused agents for research, classification, drafting, decision support and controlled execution.</p></div></div>
-          <div class="service"><div class="service-num">05</div><div><h3>Integrations</h3><p>Connect APIs, internal systems, external platforms and data sources into one operating flow.</p></div></div>
-          <div class="service"><div class="service-num">06</div><div><h3>AI Product Development</h3><p>Design and delivery of AI-enabled products from workflow definition through production implementation.</p></div></div>
+        <div class="prod-body">
+          <p>AI B2B Sales finds and researches prospects, ranks them against your criteria and prepares outreach for your team. It runs on our own database of 1 million US businesses. Nothing is sent without approval, so you get the speed of automation with a person responsible for every message.</p>
+          <div class="feat">
+            <div><strong>Own business database</strong><span>Prospect from our own database of 1 million US businesses.</span></div>
+            <div><strong>Research</strong><span>Gather the context your team needs before reaching out.</span></div>
+            <div><strong>Prioritization</strong><span>Focus on the prospects most worth contacting first.</span></div>
+            <div><strong>Human-approved outreach</strong><span>Review and approve each outreach step before it is executed.</span></div>
+          </div>
+          <div class="prod-cta"><a class="btn btn-gold" href="#contact">Request a demo</a></div>
         </div>
-      </div>
-    </section>
+      </article>
+    </div>
+  </section>
 
-    <section class="system" id="approach">
-      <div class="wrap system-grid">
-        <div class="system-copy">
-          <div class="section-tag">How we work</div>
-          <h2>Automation with control built in.</h2>
-          <p>We start with the operational process, not the technology. AI is introduced where it improves speed or judgment, while approvals and accountability remain explicit where they matter.</p>
-        </div>
-        <div class="flow">
-          <div class="flow-row"><span>01</span><div><strong>Understand the workflow</strong><p>Map the process, handoffs, decisions, data and operational pain points.</p></div></div>
-          <div class="flow-row"><span>02</span><div><strong>Structure the operating model</strong><p>Define roles, controls, exceptions and the system of record before automating.</p></div></div>
-          <div class="flow-row"><span>03</span><div><strong>Add automation and AI</strong><p>Use software, integrations and agents where they create measurable leverage.</p></div></div>
-          <div class="flow-row"><span>04</span><div><strong>Keep humans in material decisions</strong><p>Approval, risk and exception paths remain visible and auditable.</p></div></div>
-        </div>
+  <!-- AI / AUTOMATION / BI -->
+  <section class="ai" id="ai">
+    <div class="wrap center">
+      <div class="tag">AI agents, automation and business intelligence</div>
+      <h2>Put AI to work on the repetitive parts.</h2>
+      <p class="sub">Beyond our products, we build agents, automations and reporting around your own processes and systems.</p>
+    </div>
+    <div class="wrap">
+      <div class="cols-3">
+        <div class="acard"><h3>AI agents</h3><p>Task-focused agents for research, classification, drafting and decision support. Each agent has a defined job, defined limits and a named owner, and material actions wait for approval.</p><div class="chain">READ → RESEARCH → DRAFT → APPROVE</div></div>
+        <div class="acard"><h3>Workflow automation</h3><p>Replace email chains, manual data entry and fragmented handoffs with structured digital workflows that route work, chase open items and flag exceptions.</p><div class="chain">TRIGGER → ROUTE → ESCALATE</div></div>
+        <div class="acard"><h3>Business intelligence</h3><p>Connect the data your systems already produce and turn it into dashboards and reports your team uses every day, such as portfolio status, receivables ageing and cash position.</p><div class="chain">CONNECT → MODEL → REPORT</div></div>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <section class="industries" id="industries">
-      <div class="wrap section-grid">
-        <div><div class="section-tag">Industries</div><h2 class="section-title">Built for operationally demanding businesses.</h2></div>
-        <div>
-          <p class="section-copy">Our strongest fit is where important work still depends on email, spreadsheets, manual data entry and disconnected systems.</p>
-          <div class="industry-list"><span class="pill">Banks & MFIs</span><span class="pill">Factoring Companies</span><span class="pill">Finance Teams</span><span class="pill">B2B Companies</span><span class="pill">Industrial & Distribution</span><span class="pill">Professional Services</span><span class="pill">SMEs</span></div>
-        </div>
+  <!-- SERVICES -->
+  <section id="services">
+    <div class="wrap center">
+      <div class="tag">Services</div>
+      <h2>Build what your business actually needs.</h2>
+      <p class="sub">For companies that need more than an off-the-shelf product, we design and build practical software, automations and AI-enabled workflows.</p>
+    </div>
+    <div class="wrap">
+      <div class="service-grid">
+        <div class="service"><small>01</small><h3>Web Development</h3><p>Modern business websites designed around credibility, clarity and conversion.</p></div>
+        <div class="service"><small>02</small><h3>App Development</h3><p>Custom web applications, portals and internal tools built around real operating processes.</p></div>
+        <div class="service"><small>03</small><h3>Workflow Automation</h3><p>Replace repetitive manual tasks and fragmented handoffs with structured digital workflows.</p></div>
+        <div class="service"><small>04</small><h3>AI Agents</h3><p>Task-focused agents for research, classification, drafting, decision support and controlled execution.</p></div>
+        <div class="service"><small>05</small><h3>Integrations</h3><p>Connect APIs, internal systems, external platforms and data sources into one operating flow.</p></div>
+        <div class="service"><small>06</small><h3>AI Product Development</h3><p>Design and delivery of AI-enabled products from workflow definition through production implementation.</p></div>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <section class="cta" id="contact">
-      <div class="wrap cta-box">
-        <div><div class="section-tag" style="color:#9ec4b8">Start a conversation</div><h2>Have an operation that should work better?</h2><p>We can help determine whether the right answer is a product, custom application, automation, AI agent or integration.</p></div>
-        <a class="btn" href="mailto:levan@novafort.tech">levan@novafort.tech →</a>
+  <!-- APPROACH -->
+  <section class="approach" id="approach">
+    <div class="wrap center">
+      <div class="tag">How we work</div>
+      <h2>Automation with control built in.</h2>
+      <p class="sub">We start with the operational process, not the technology. AI is introduced where it improves speed or judgment, while approvals and accountability remain explicit where they matter.</p>
+    </div>
+    <div class="wrap">
+      <div class="steps">
+        <div class="step"><small>STEP 1</small><h3>Understand the workflow</h3><p>Map the process, handoffs, decisions, data and operational pain points.</p></div>
+        <div class="step"><small>STEP 2</small><h3>Structure the operating model</h3><p>Define roles, controls, exceptions and the system of record before automating.</p></div>
+        <div class="step"><small>STEP 3</small><h3>Add automation and AI</h3><p>Use software, integrations and agents where they create measurable leverage.</p></div>
+        <div class="step"><small>STEP 4</small><h3>Keep humans in material decisions</h3><p>Approval, risk and exception paths remain visible and auditable.</p></div>
       </div>
-    </section>
-  </main>
+    </div>
+  </section>
 
-  <footer>
-    <div class="wrap footer-row"><div>© 2026 Novafort</div><div class="footer-links"><a href="#products">Products</a><a href="#services">Services</a><a href="#approach">Approach</a><a href="#contact">Contact</a></div></div>
-  </footer>
+  <!-- INDUSTRIES -->
+  <section id="industries">
+    <div class="wrap center">
+      <div class="tag">Industries</div>
+      <h2>Built for operationally demanding businesses.</h2>
+      <p class="sub">Our strongest fit is where important work still depends on email, spreadsheets, manual data entry and disconnected systems.</p>
+      <div class="industry-list">
+        <span class="pill">Banks &amp; MFIs</span><span class="pill">Factoring Companies</span><span class="pill">Finance Teams</span><span class="pill">B2B Companies</span><span class="pill">Industrial &amp; Distribution</span><span class="pill">Professional Services</span><span class="pill">SMEs</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="cta" id="contact">
+    <div class="wrap cta-box">
+      <div>
+        <div class="tag" style="color:#9ec4b8">Start a conversation</div>
+        <h2>Have an operation that should work better?</h2>
+        <p>We can help determine whether the right answer is a product, custom application, automation, AI agent or integration.</p>
+        <p class="mail">levan@novafort.tech</p>
+      </div>
+      <a class="btn btn-gold" href="mailto:levan@novafort.tech">Contact us →</a>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="foot">
+      <div>
+        <div class="brand"><span class="brand-mark">N</span><span>NOVAFORT TECH</span></div>
+        <p>AI-enabled software, automation and business intelligence for financial institutions and operations-heavy businesses.</p>
+      </div>
+      <div><h4>Products</h4><a href="#treasury-os">Treasury OS</a><a href="#factoring-erp">Factoring ERP</a><a href="#receivables">AI Receivables Manager</a><a href="#b2b-sales">AI B2B Sales</a></div>
+      <div><h4>Services</h4><a href="#ai">AI agents</a><a href="#ai">Workflow automation</a><a href="#ai">Business intelligence</a><a href="#services">Custom development</a></div>
+      <div><h4>Company</h4><a href="#approach">Our approach</a><a href="#industries">Industries</a><a href="#contact">Contact</a></div>
+    </div>
+    <div class="legal"><span>© 2026 Novafort Tech</span><span>levan@novafort.tech</span></div>
+  </div>
+</footer>
 </body>
 </html>
